@@ -3,6 +3,7 @@ package com.example.myapplication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.graphics.Color
+import android.text.TextUtils.isEmpty
 import com.example.myapplication.databinding.ActivityMainBinding
 
 
@@ -22,19 +23,27 @@ class MainActivity : AppCompatActivity() {
         val resultado = binding.result
 
         btnCalcular.setOnClickListener {
-            val nota1:Int = Integer.parseInt(binding.nota1.text.toString())
-            val nota2:Int = Integer.parseInt(binding.nota2.text.toString())
 
-            val media:Int = (nota1 + nota2)/2
-            val faltas:Int = Integer.parseInt(binding.faltas.text.toString())
 
-            if(media >= 7 && faltas <= 15){
-                resultado.setText("O Aluno(a) foi aprovado(a) com $media de media e $faltas faltas")
-                resultado.setTextColor(Color.GREEN)
-            }else{
-                resultado.setText("O aluno foi reprovado com $media de media e $faltas faltas")
+            if(binding.nota1.text.length == 0 || binding.nota2.text.length == 0 || binding.faltas.text.length == 0){
+                resultado.setText("Você não preencheu algum campo...")
                 resultado.setTextColor(Color.RED)
+            }else{
+                val nota1:Int = Integer.parseInt(binding.nota1.text.toString())
+                val nota2:Int = Integer.parseInt(binding.nota2.text.toString())
+                val media:Int = (nota1 + nota2)/2
+                val faltas:Int = Integer.parseInt(binding.faltas.text.toString())
+
+
+                if(media >= 7 && faltas <= 15){
+                    resultado.setText("O Aluno(a) foi aprovado(a) com $media de media e $faltas faltas")
+                    resultado.setTextColor(Color.GREEN)
+                }else{
+                    resultado.setText("O aluno foi reprovado com $media de media e $faltas faltas")
+                    resultado.setTextColor(Color.RED)
+                }
             }
+
         }
 
         }
