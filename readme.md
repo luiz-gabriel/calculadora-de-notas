@@ -1,5 +1,6 @@
-## Calculadora básica de notas
+# Calculadora básica de notas
 
 
-Projeto desenvolvido com intuito de praticar os apredizados inciais em Android.
+###Calculadora de notas básica, desenvolvida com intuito de praticar os conhecimentos iniciais em kotlin para android. <br> O projeto verificar se os campos foram todos preenchidos e após realiza os calculos necessarios para retornar o resultado final.
 
+### App desenvolvido durante bootcamp do Inter Android Developer
